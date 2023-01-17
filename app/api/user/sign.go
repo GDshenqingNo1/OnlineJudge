@@ -16,19 +16,21 @@ type SignApi struct{}
 var insSign = SignApi{}
 
 func (a *SignApi) Register(c *gin.Context) {
-	username := c.PostForm("username")
-	password := c.PostForm("password")
-	mail := c.PostForm("mail")
-	code := c.PostForm("code")
-	if username == "" {
+	var userSubject = &user.User{}
+	err := c.BindJSON(&userSubject)
+	if err != nil {
+		resp.ResponseFail(c, http.StatusBadRequest, fmt.Sprintf("request json form error:%v", err))
+		return
+	}
+	if userSubject.Username == "" {
 		resp.ResponseFail(c, http.StatusBadRequest, "username cannot be null.")
 		return
 	}
-	if password == "" {
+	if userSubject.Password == "" {
 		resp.ResponseFail(c, http.StatusBadRequest, "password cannot be null.")
 		return
 	}
-	err := service.User().User().CheckUserIsExist(c, username)
+	err = service.User().User().CheckUserIsExist(c, userSubject.Username)
 	if err != nil {
 		if err.Error() == "internal err" {
 			resp.ResponseFail(c, http.StatusInternalServerError, "internal err.")
@@ -37,7 +39,7 @@ func (a *SignApi) Register(c *gin.Context) {
 		}
 		return
 	}
-	err = service.User().User().CheckCode(c, mail, code)
+	err = service.User().User().CheckCode(c, userSubject.Mail, userSubject.Code)
 	if err != nil {
 		if err.Error() == "internal err" {
 			resp.ResponseFail(c, http.StatusInternalServerError, "internal err")
@@ -47,11 +49,8 @@ func (a *SignApi) Register(c *gin.Context) {
 			return
 		}
 	}
-	userSubject := &user.User{}
-	encryptedPassword := service.User().User().EncryptPassword(password)
-	userSubject.Username = username
+	encryptedPassword := service.User().User().EncryptPassword(userSubject.Password)
 	userSubject.Password = encryptedPassword
-	userSubject.Mail = mail
 	err = service.User().User().CreateUser(c, userSubject)
 	if err != nil {
 		resp.ResponseFail(c, http.StatusInternalServerError, fmt.Sprintf("register failed：%v", err))
@@ -61,21 +60,22 @@ func (a *SignApi) Register(c *gin.Context) {
 }
 
 func (a *SignApi) Login(c *gin.Context) {
-	username := c.PostForm("username")
-	password := c.PostForm("password")
-	if username == "" {
+	var userSubject = &user.User{}
+	err := c.BindJSON(&userSubject)
+	if err != nil {
+		resp.ResponseFail(c, http.StatusBadRequest, fmt.Sprintf("request json form error:%v", err))
+		return
+	}
+	if userSubject.Username == "" {
 		resp.ResponseFail(c, http.StatusBadRequest, "username cannot be null.")
 		return
 	}
-	if password == "" {
+	if userSubject.Password == "" {
 		resp.ResponseFail(c, http.StatusBadRequest, "password cannot be null.")
 		return
 	}
-	userSubject := &user.User{
-		Username: username,
-		Password: service.User().User().EncryptPassword(password),
-	}
-	err := service.User().User().CheckPassword(c, userSubject)
+	userSubject.Password = service.User().User().EncryptPassword(userSubject.Password)
+	err = service.User().User().CheckPassword(c, userSubject)
 	if err != nil {
 		switch err.Error() {
 		case "internal err":

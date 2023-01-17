@@ -16,8 +16,8 @@ type SubmitApi struct{}
 var insSubmission SubmitApi
 
 func (a *SubmitApi) Submit(c *gin.Context) {
-	fmt.Println(c.Request.Body)
-	problemId, _ := strconv.Atoi(c.Query("problemId"))
+	//fmt.Println(c.Request.Body)
+	problemId, _ := strconv.Atoi(c.Query("problem_id"))
 	username := c.Query("username")
 	code, _ := io.ReadAll(c.Request.Body)
 	submissionSubject := &submission.Submission{

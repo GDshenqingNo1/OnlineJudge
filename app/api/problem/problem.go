@@ -17,34 +17,27 @@ type ProblemApi struct{}
 var insProblem ProblemApi
 
 func (a *ProblemApi) ShowList(c *gin.Context) {
-	pageStr := c.Query("page")
-	page, _ := strconv.Atoi(pageStr)
+	//pageStr := c.Query("page")
+	//pageSize, _ := strconv.Atoi(pageStr)
 	list, err := service.Problem().Problem().GetProblemList(c)
 	if err != nil {
 		resp.ResponseFail(c, http.StatusInternalServerError, fmt.Sprintf("get problem list error:%v", err))
 	}
 	c.JSON(http.StatusOK, gin.H{
 		"code": 200,
-		"mag": map[string]interface{}{
-			"list": list,
-			"page": page,
-		}})
+		"mag":  "get problem list successfully",
+		"data": list,
+	})
 }
 
 func (a *ProblemApi) SubmitProblem(c *gin.Context) {
-	name := c.PostForm("name")
-	description := c.PostForm("description")
-	testIn := c.PostForm("testIn")
-	testOut := c.PostForm("testOut")
-	author := c.PostForm("author")
-	problemSubject := &problem.Problem{
-		Name:        name,
-		Description: description,
-		TestIn:      testIn,
-		TestOut:     testOut,
-		Author:      author,
+	var problemSubject = &problem.Problem{}
+	err := c.BindJSON(&problemSubject)
+	if err != nil {
+		resp.ResponseFail(c, http.StatusBadRequest, fmt.Sprintf("request JSON form error:%v", err))
+		return
 	}
-	err := service.Problem().Problem().SaveProblem(c, problemSubject)
+	err = service.Problem().Problem().SaveProblem(c, problemSubject)
 	if err != nil {
 		resp.ResponseFail(c, http.StatusInternalServerError, fmt.Sprintf("submit problem failed err:%v", err))
 		return
@@ -64,19 +57,14 @@ func (a *ProblemApi) ModifyProblem(c *gin.Context) {
 			return
 		}
 	}
-	name := c.PostForm("name")
-	description := c.PostForm("description")
-	testIn := c.PostForm("testIn")
-	testOut := c.PostForm("testOut")
-	author := c.PostForm("author")
-	problemSubject := &problem.Problem{
-		Name:        name,
-		Description: description,
-		TestIn:      testIn,
-		TestOut:     testOut,
-		Author:      author,
-		Id:          id,
+	var problemSubject = &problem.Problem{}
+
+	err = c.BindJSON(&problemSubject)
+	if err != nil {
+		resp.ResponseFail(c, http.StatusBadRequest, fmt.Sprintf("request json error:%v", err))
+		return
 	}
+	problemSubject.Id = id
 	err = service.Problem().Problem().UpdateProblemInfo(c, problemSubject)
 	if err != nil {
 		g.Logger.Error("update problem info err", zap.Error(err))
