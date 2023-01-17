@@ -1,0 +1,56 @@
+package jwt
+
+import (
+	"OnlineJudge/utils/cookie"
+	"errors"
+	"github.com/golang-jwt/jwt/v4"
+	"time"
+)
+
+type CustomClaims struct {
+	BufferTime int64
+	jwt.RegisteredClaims
+	BaseClaims
+}
+
+type BaseClaims struct {
+	Id         int64
+	Username   string
+	CreateTime time.Time
+	UpdateTime time.Time
+}
+
+func GetClaims(secret string, cookie *cookie.Cookie) (*CustomClaims, error) {
+	var token string
+	ok := cookie.Get("x-token", &token)
+
+	if !ok {
+		err := errors.New("get token by cookie failed")
+		return nil, err
+	}
+	j := NewJWT(&Config{SecretKey: secret})
+	claims, err := j.ParseToken(token)
+	if err != nil {
+		err := errors.New("parse token failed")
+		return nil, err
+	}
+	return claims, nil
+}
+
+//GetUserInfo 从Gin的context中获取用户信息
+func GetUserInfo(secret string, cookie *cookie.Cookie) (*BaseClaims, error) {
+	if cl, err := GetClaims(secret, cookie); err != nil {
+		return nil, err
+	} else {
+		return &cl.BaseClaims, nil
+	}
+}
+
+//GetUserID 获取从Jwt中解析出来的userID
+func GetUserID(secret string, cookie *cookie.Cookie) (int64, error) {
+	if cl, err := GetClaims(secret, cookie); err != nil {
+		return -1, err
+	} else {
+		return cl.BaseClaims.Id, nil
+	}
+}
