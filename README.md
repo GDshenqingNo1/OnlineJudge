@@ -50,4 +50,4 @@
 
 ## mysql库结构
 
-![mysql](D:\GoProjects\src\OnlineJudge\mysql.png)
+![mysql](.\mysql.png)
