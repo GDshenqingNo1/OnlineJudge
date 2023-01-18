@@ -1,17 +1,13 @@
 <template>
-  <div id="app">
-    <router-view :key="$route.fullPath"></router-view>
-  </div>
+
+    <router-view ></router-view>
+
 </template>
 
 <script>
 
 export default {
-  watch: {
-    $route() {
-      location.reload();
-    },
-  },
+
   name: 'App'
 }
 </script>

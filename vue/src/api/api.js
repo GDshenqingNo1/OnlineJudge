@@ -14,7 +14,7 @@ export default {
   },
   //登录
   login(param){
-    return http.postJson(`/user/register`,param)
+    return http.postJson(`/user/login`,param)
   },
   //提交代码
   submit(param,id) {

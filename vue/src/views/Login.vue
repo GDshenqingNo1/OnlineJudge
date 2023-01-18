@@ -15,16 +15,7 @@
         </el-form-item>
       </el-form>
 
-      <el-dialog
-        title="温馨提示"
-        :visible.sync="dialogVisible"
-        width="30%"
-        :before-close="handLeClose">
-        <span>请输入账号和密码</span>
-        <span slot="footer" class="dialog- footer">
-        <el-button type="primary" @click="dialogVisible = false">确定</el-button>
-      </span>
-      </el-dialog>
+
     </el-card>
   </div>
 </template>
@@ -57,7 +48,7 @@ export default {
   methods: {
     onSubmit() {
          api.login(JSON.stringify(this.form)).then(res=>{
-           if (res.data.code == 200) {
+           if (res.data.code === 200) {
              ElMessage.success('登录成功')
              localStorage.setItem("token", res.data.data.token);
              store.commit("loginSucc", res.data.data.token);

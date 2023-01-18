@@ -1,5 +1,4 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter,createWebHashHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import User from "../views/User.vue";
@@ -7,10 +6,9 @@ import ProblemList from "../views/ProblemList.vue";
 import Rank from "../views/Rank.vue";
 import Register from "../views/Register.vue";
 import CreateProblem from "../views/CreateProblem.vue";
-Vue.use(Router)
 
-export default new Router({
-  routes: [
+
+  const routes=[
     {
       path: '/',
       name: 'main',
@@ -47,4 +45,8 @@ export default new Router({
       component:CreateProblem
     },
   ]
+const Router=createRouter({
+  history:createWebHashHistory(),
+  routes
 })
+export default Router

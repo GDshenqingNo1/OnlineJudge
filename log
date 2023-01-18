@@ -1146,3 +1146,30 @@
 [2023-01-17 14:39:21.742	INFO	D:/GoProjects/src/OnlineJudge/app/internal/middleware/logger.go:23	/api/problem/modify	{"status": 200, "method": "POST", "path": "/api/problem/modify", "query": "id=12", "ip": "::1", "user-agent": "Apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "2.5469ms"}
 [2023-01-17 14:39:33.395	INFO	D:/GoProjects/src/OnlineJudge/app/internal/middleware/logger.go:23	/api/problem/modify	{"status": 200, "method": "POST", "path": "/api/problem/modify", "query": "id=12", "ip": "::1", "user-agent": "Apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "2.3302ms"}
 [2023-01-17 14:39:50.350	INFO	D:/GoProjects/src/OnlineJudge/app/internal/middleware/logger.go:23	/api/problem/modify	{"status": 200, "method": "POST", "path": "/api/problem/modify", "query": "id=12", "ip": "::1", "user-agent": "Apifox/1.0.0 (https://www.apifox.cn)", "errors": "", "cost": "2.2219ms"}
+[2023-01-18 22:09:37.201	INFO	D:/GoProjects/src/OnlineJudge/boot/logger.go:58	initialize logger successfully!
+[2023-01-18 22:09:37.242	INFO	D:/GoProjects/src/OnlineJudge/boot/database.go:31	initialize mysql successfully!
+[2023-01-18 22:09:37.245	FATAL	D:/GoProjects/src/OnlineJudge/boot/database.go:48	connect to redis failed.	{"error": "ERR Client sent AUTH, but no password is set"}
+[2023-01-18 22:10:16.998	INFO	D:/GoProjects/src/OnlineJudge/boot/logger.go:58	initialize logger successfully!
+[2023-01-18 22:10:17.023	INFO	D:/GoProjects/src/OnlineJudge/boot/database.go:31	initialize mysql successfully!
+[2023-01-18 22:10:17.024	INFO	D:/GoProjects/src/OnlineJudge/boot/database.go:52	initialize redis client successfully.
+[2023-01-18 22:10:17.024	INFO	D:/GoProjects/src/OnlineJudge/app/router/router.go:25	initialize routers successfully
+[2023-01-18 22:10:17.025	INFO	D:/GoProjects/src/OnlineJudge/boot/server.go:25	initialize server successfully	{"port": ":8080"}
+[2023-01-18 22:11:25.960	INFO	D:/GoProjects/src/OnlineJudge/boot/logger.go:58	initialize logger successfully!
+[2023-01-18 22:11:25.983	INFO	D:/GoProjects/src/OnlineJudge/boot/database.go:31	initialize mysql successfully!
+[2023-01-18 22:11:25.984	INFO	D:/GoProjects/src/OnlineJudge/boot/database.go:52	initialize redis client successfully.
+[2023-01-18 22:11:25.985	INFO	D:/GoProjects/src/OnlineJudge/app/router/router.go:25	initialize routers successfully
+[2023-01-18 22:11:25.985	INFO	D:/GoProjects/src/OnlineJudge/boot/server.go:25	initialize server successfully	{"port": ":8181"}
+[2023-01-18 22:12:12.329	INFO	D:/GoProjects/src/OnlineJudge/app/internal/middleware/logger.go:23	/user/register	{"status": 404, "method": "POST", "path": "/user/register", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.46", "errors": "", "cost": "0s"}
+[2023-01-18 22:12:45.417	INFO	D:/GoProjects/src/OnlineJudge/app/internal/middleware/logger.go:23	/user/login	{"status": 404, "method": "POST", "path": "/user/login", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.46", "errors": "", "cost": "0s"}
+[2023-01-18 22:12:52.682	INFO	D:/GoProjects/src/OnlineJudge/app/internal/middleware/logger.go:23	/user/login	{"status": 404, "method": "POST", "path": "/user/login", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.46", "errors": "", "cost": "0s"}
+[2023-01-18 22:14:21.459	INFO	D:/GoProjects/src/OnlineJudge/app/internal/middleware/logger.go:23	/user/login	{"status": 404, "method": "POST", "path": "/user/login", "query": "", "ip": "::1", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.46", "errors": "", "cost": "0s"}
+[2023-01-18 22:17:05.854	INFO	D:/GoProjects/src/OnlineJudge/boot/logger.go:58	initialize logger successfully!
+[2023-01-18 22:17:05.880	INFO	D:/GoProjects/src/OnlineJudge/boot/database.go:31	initialize mysql successfully!
+[2023-01-18 22:17:05.881	INFO	D:/GoProjects/src/OnlineJudge/boot/database.go:52	initialize redis client successfully.
+[2023-01-18 22:17:05.882	INFO	D:/GoProjects/src/OnlineJudge/app/router/router.go:25	initialize routers successfully
+[2023-01-18 22:17:05.882	INFO	D:/GoProjects/src/OnlineJudge/boot/server.go:25	initialize server successfully	{"port": ":8080"}
+[2023-01-18 22:49:09.348	INFO	D:/GoProjects/src/OnlineJudge/boot/logger.go:58	initialize logger successfully!
+[2023-01-18 22:49:09.378	INFO	D:/GoProjects/src/OnlineJudge/boot/database.go:31	initialize mysql successfully!
+[2023-01-18 22:49:09.379	INFO	D:/GoProjects/src/OnlineJudge/boot/database.go:52	initialize redis client successfully.
+[2023-01-18 22:49:09.380	INFO	D:/GoProjects/src/OnlineJudge/app/router/router.go:25	initialize routers successfully
+[2023-01-18 22:49:09.380	INFO	D:/GoProjects/src/OnlineJudge/boot/server.go:25	initialize server successfully	{"port": ":8080"}

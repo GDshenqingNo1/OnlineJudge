@@ -21,13 +21,13 @@ func (s *SSubmission) GetUuid() string {
 }
 
 func (s *SSubmission) SaveCode(code []byte, submission *submission.Submission) {
-	_ = os.Mkdir("D:/GoProjects/src/OnlineJudge/app/code/"+submission.Uuid, 0777)
-	_, err := os.Create("D:/GoProjects/src/OnlineJudge/app/code/" + submission.Uuid + "/main.go")
+	_ = os.Mkdir("/home/code/OnlineJudge/app/code/"+submission.Uuid, 0777)
+	_, err := os.Create("/home/code/OnlineJudge/app/code/" + submission.Uuid + "/main.go")
 	if err != nil {
 		g.Logger.Fatal("save code to local error.", zap.Error(err))
 
 	}
-	file, _ := os.OpenFile("D:/GoProjects/src/OnlineJudge/app/code/"+submission.Uuid+"/main.go", os.O_CREATE|os.O_RDWR|os.O_APPEND, 0777)
+	file, _ := os.OpenFile("/home/code/OnlineJudge/app/code/"+submission.Uuid+"/main.go", os.O_CREATE|os.O_RDWR|os.O_APPEND, 0777)
 	defer file.Close()
 	_, err = file.Write(code)
 	if err != nil {

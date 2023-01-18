@@ -10,8 +10,11 @@
           <el-input type="password" placeholder=" 请输入密码" v-model="form.password"/>
         </el-form-item>
         <el-form-item label=" 邮箱" prop="mail">
-          <el-input style="width: 100px" type="text" placeholder=" 请输入邮箱" v-model="form.password"/>
+          <el-input style="width: 100px" type="text" placeholder=" 请输入邮箱" v-model="form.mail"/>
           <el-button type="primary" >发送验证码</el-button>
+        </el-form-item>
+        <el-form-item label=" 验证码" prop="code">
+          <el-input type="password" placeholder=" 请输入验证码" v-model="form.code"/>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" v-on:click="onSubmit">登录</el-button>
@@ -19,16 +22,7 @@
         </el-form-item>
       </el-form>
 
-      <el-dialog
-        title="温馨提示"
-        :visible.sync="dialogVisible"
-        width="30%"
-        :before-close="handLeClose">
-        <span>请输入账号和密码</span>
-        <span slot="footer" class="dialog- footer">
-        <el-button type="primary" @click="dialogVisible = false">确定</el-button>
-      </span>
-      </el-dialog>
+
     </el-card>
   </div>
 </template>
@@ -64,10 +58,7 @@ export default {
     }
   },
   methods: {
-    onSubmit(formName) {
-//为表单绑定验证功能
 
-        },
     cancel(){
       this.$router.push("/")
     }

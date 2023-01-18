@@ -1,19 +1,18 @@
+
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
+
+import {createApp} from 'vue'
+
 import App from './App'
 import router from './router'
-import ElementUI from 'element-ui';
 import ElementPlus from "element-plus";
-import 'element-ui/lib/theme-chalk/index.css';
-Vue.use(router);
-Vue.use(ElementPlus)
-Vue.use(ElementUI)
-Vue.config.productionTip = false
+import 'element-plus/dist/index.css'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import store from "@/store";
 
 /* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  render: h => h(App)
-})
+createApp(App).use(router).use(ElementPlus,{
+  locale: zhCn,
+}).use(store).mount('#app')

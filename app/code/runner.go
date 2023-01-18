@@ -10,7 +10,7 @@ import (
 
 func Run(uuid, testIn string) string {
 	var path string
-	path = "D:/GoProjects/src/OnlineJudge/app/code/" + uuid + "/main.go"
+	path = "/home/code/OnlineJudge/app/code/" + uuid + "/main.go"
 	cmd := exec.Command("go", "run", path)
 	var stdErr, stdOut bytes.Buffer
 	cmd.Stderr = &stdErr
