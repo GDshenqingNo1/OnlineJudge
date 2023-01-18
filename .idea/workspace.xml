@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02abaacc-3ef1-4c0c-b0f8-7332b527879e" name="变更" comment="fix json bind">
-      <change beforePath="$PROJECT_DIR$/vue/src/api/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/api/request.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/internal/middleware/cors.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/user/sign.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/user/sign.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/internal/model/resp/resp.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/internal/model/resp/resp.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/router/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,11 +85,6 @@
       <filePath value="$PROJECT_DIR$/app/code/c7b92767-e4ee-4a09-b7ec-16bca0ee742d/main.go" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Go 构建.go build OnlineJudge" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -96,11 +96,24 @@
       <updated>1673947469643</updated>
       <workItem from="1673947470729" duration="30000" />
       <workItem from="1673960441002" duration="14000" />
+      <workItem from="1674063557514" duration="24000" />
+      <workItem from="1674063588899" duration="28000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix json bind" />

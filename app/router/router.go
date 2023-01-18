@@ -8,7 +8,7 @@ import (
 
 func InitRouter() *gin.Engine {
 	r := gin.Default()
-	r.Use(middleware.ZapLogger(g.Logger), middleware.ZapRecovery(g.Logger, true))
+	r.Use(middleware.ZapLogger(g.Logger), middleware.ZapRecovery(g.Logger, true), middleware.CORS())
 
 	routerGroup := new(Group)
 	publicGroup := r.Group("/api")

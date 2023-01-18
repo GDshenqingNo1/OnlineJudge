@@ -45,7 +45,7 @@ func (a *SignApi) Register(c *gin.Context) {
 			resp.ResponseFail(c, http.StatusInternalServerError, "internal err")
 			return
 		} else if err.Error() == "incorrect code" {
-			resp.ResponseFail(c, http.StatusBadRequest, "incorrect code")
+			resp.ResponseFail(c, http.StatusOK, "incorrect code")
 			return
 		}
 	}
@@ -63,15 +63,15 @@ func (a *SignApi) Login(c *gin.Context) {
 	var userSubject = &user.User{}
 	err := c.BindJSON(&userSubject)
 	if err != nil {
-		resp.ResponseFail(c, http.StatusBadRequest, fmt.Sprintf("request json form error:%v", err))
+		resp.ResponseFail(c, http.StatusOK, fmt.Sprintf("request json form error:%v", err))
 		return
 	}
 	if userSubject.Username == "" {
-		resp.ResponseFail(c, http.StatusBadRequest, "username cannot be null.")
+		resp.ResponseFail(c, http.StatusOK, "username cannot be null.")
 		return
 	}
 	if userSubject.Password == "" {
-		resp.ResponseFail(c, http.StatusBadRequest, "password cannot be null.")
+		resp.ResponseFail(c, http.StatusOK, "password cannot be null.")
 		return
 	}
 	userSubject.Password = service.User().User().EncryptPassword(userSubject.Password)
@@ -81,7 +81,7 @@ func (a *SignApi) Login(c *gin.Context) {
 		case "internal err":
 			resp.ResponseFail(c, http.StatusInternalServerError, err.Error())
 		case "invalid username or password":
-			resp.ResponseFail(c, http.StatusBadRequest, err.Error())
+			resp.ResponseFail(c, http.StatusOK, err.Error())
 		}
 		return
 	}
@@ -118,7 +118,7 @@ func (a *SignApi) SendCode(c *gin.Context) {
 			resp.ResponseFail(c, http.StatusInternalServerError, fmt.Sprintf("check mail failed ,err:%v", err))
 			return
 		} else if err.Error() == "mail is already signed" {
-			resp.ResponseFail(c, http.StatusBadRequest, "mail is already signed")
+			resp.ResponseFail(c, http.StatusOK, "mail is already signed")
 			return
 		}
 	}
