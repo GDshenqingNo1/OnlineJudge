@@ -3,14 +3,15 @@
     <el-card class="box-card">
       <el-form ref="loginForm" :model="form" :rules="rules" label-width="80px" class="login-box">
         <h3 class="login-title">登录</h3>
-        <el-form-item label=" 账号" prop="username">
-          <el-input type="text" placeholder="请输入账号" v-model="form.username"/>
+        <el-form-item label=" 用户名" prop="username">
+          <el-input type="text" placeholder="请输入用户名" v-model="form.username"/>
         </el-form-item>
         <el-form-item label=" 密码" prop="password">
           <el-input type="password" placeholder=" 请输入密码" v-model="form.password"/>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" v-on:click="onSubmit( 'loginForm' )">登录</el-button>
+          <el-button plain type="primary" v-on:click="cancel">取消</el-button>
         </el-form-item>
       </el-form>
 
@@ -52,16 +53,10 @@ export default {
   },
   methods: {
     onSubmit(formName) {
-//为表单绑定验证功能
-      this.$refs [formName].validate((valid) => {
-        if (valid) {
-//使用vue-router路由到指定页面，该方式称之为编程式导航
-          this.$router.push("/main");
-        } else {
-          this.dialogVisible = true;
-          return false;
-        }
-      });
+
+    },
+    cancel(){
+      this.$router.push("/")
     }
   }
 }

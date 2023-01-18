@@ -66,21 +66,15 @@ export default {
   methods: {
     onSubmit(formName) {
 //为表单绑定验证功能
-      this.$refs [formName].validate((valid) => {
-        if (valid) {
-//使用vue-router路由到指定页面，该方式称之为编程式导航
-          this.$router.push("/main");
-        } else {
-          this.dialogVisible = true;
-          return false;
-        }
-      });
-    },
+
+        },
     cancel(){
       this.$router.push("/")
     }
   }
-}
+      }
+
+
 </script>
 
 <style scoped>

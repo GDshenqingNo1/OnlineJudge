@@ -1,21 +1,36 @@
 <template>
-    <div>
-        {{msg}}
-    </div>
+  <Navi></Navi>
+  <el-table
+    :data="tableData"
+    stripe
+    style="width: 100%">
+    <el-table-column
+      prop="id"
+      label="id"
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="username"
+      label="用户名"
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="submit_time"
+      label="提交次数"
+      width="180">
+    </el-table-column>
+    <el-table-column
+      prop="accept_time"
+      label="正确次数"
+      width="180">
+    </el-table-column>
+  </el-table>
 </template>
-
-<!--加上scoped能够防止样式之间的冲突-->
-<style scoped>
-    body {
-        background-color: #ff0000;
-    }
-</style>
-
 <script>
+import Navi from "./Navi.vue";
 export default {
-  data () {
-    return { msg: '这个是Vue模板页' }
-  }
+  name :"Rank",
+  components: {Navi}
 }
 </script>
 
