@@ -30,6 +30,9 @@
 </template>
 
 <script>
+import api from "../api/api";
+import {ElMessage} from "element-plus";
+import store from "../store";
 export default {
   name: "Login",
   data() {
@@ -52,8 +55,19 @@ export default {
     }
   },
   methods: {
-    onSubmit(formName) {
-
+    onSubmit() {
+         api.login(JSON.stringify(this.form)).then(res=>{
+           if (res.data.code == 200) {
+             ElMessage.success('登录成功')
+             localStorage.setItem("token", res.data.data.token);
+             store.commit("loginSucc", res.data.data.token);
+             store.commit("setUser", {username: this.form.username, is_admin: res.data.data.is_admin});
+             localStorage.setItem('is_admin', res.data.data.is_admin)
+             localStorage.setItem('username', this.form.username)
+           } else {
+             ElMessage.error(res.data.msg)
+           }
+         })
     },
     cancel(){
       this.$router.push("/")
