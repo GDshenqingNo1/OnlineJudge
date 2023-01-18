@@ -67,11 +67,11 @@ func (a *SignApi) Login(c *gin.Context) {
 		return
 	}
 	if userSubject.Username == "" {
-		resp.ResponseFail(c, http.StatusOK, "username cannot be null.")
+		resp.ResponseFail(c, http.StatusBadRequest, "username cannot be null.")
 		return
 	}
 	if userSubject.Password == "" {
-		resp.ResponseFail(c, http.StatusOK, "password cannot be null.")
+		resp.ResponseFail(c, http.StatusBadRequest, "password cannot be null.")
 		return
 	}
 	userSubject.Password = service.User().User().EncryptPassword(userSubject.Password)
@@ -81,7 +81,7 @@ func (a *SignApi) Login(c *gin.Context) {
 		case "internal err":
 			resp.ResponseFail(c, http.StatusInternalServerError, err.Error())
 		case "invalid username or password":
-			resp.ResponseFail(c, http.StatusOK, err.Error())
+			resp.ResponseFail(c, http.StatusBadRequest, err.Error())
 		}
 		return
 	}

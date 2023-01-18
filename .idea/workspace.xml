@@ -5,12 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02abaacc-3ef1-4c0c-b0f8-7332b527879e" name="变更" comment="fix json bind">
-      <change afterPath="$PROJECT_DIR$/app/internal/middleware/cors.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/api/user/sign.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/user/sign.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/internal/model/resp/resp.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/internal/model/resp/resp.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/router/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main" beforeDir="false" afterPath="$PROJECT_DIR$/main" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
