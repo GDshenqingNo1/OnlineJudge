@@ -4,10 +4,10 @@
       <el-form ref="loginForm" :model="form" :rules="rules" label-width="80px" class="login-box">
         <h3 class="login-title">基本信息</h3>
         <el-form-item label=" 题名" prop="name">
-          <el-input type="text" placeholder="请输入题名" v-model="form.name"/>
+          <el-input  type="text" placeholder="请输入题名" v-model="form.name"/>
         </el-form-item>
         <el-form-item label=" 描述" prop="description">
-          <el-input type="text" placeholder=" 请输入描述" v-model="form.description"/>
+          <el-input type="textarea" rows="7" placeholder=" 请输入描述" v-model="form.description"/>
         </el-form-item>
         <h3>示例</h3>
         <el-form-item label=" 输入" prop="testIn">
