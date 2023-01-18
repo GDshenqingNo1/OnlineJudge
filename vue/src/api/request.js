@@ -1,5 +1,4 @@
 import axios from 'axios'
-import qs from 'qs'
 import { ElMessage } from 'element-plus'
 // import store from "../store";
 // import CryptoJs from 'crypto-js'
@@ -31,7 +30,6 @@ service.interceptors.response.use((config) => {
 }, (error) => {
 
   if (error.response) {
-    const errorMessage = error.response.data === null ? '系统内部异常，请联系网站管理员' : error.response.data.message
     switch (error.response.status) {
       case 404:
         ElMessage('not found')

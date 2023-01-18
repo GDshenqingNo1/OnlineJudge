@@ -20,7 +20,8 @@
 import register from "./Register.vue";
 
 export default {
-  name:"Navi",
+
+  name:"navi",
   computed: {
     register() {
       return register

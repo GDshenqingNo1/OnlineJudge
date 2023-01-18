@@ -21,10 +21,10 @@ const store = createStore({
       state.username=data.username
       state.is_admin=data.is_admin
     },
-    logout(state,data){
-      state.isLogin=false
-
-    }
+    // logout(state,data){
+    //   state.isLogin=false
+    //
+    // }
   }
 
 })

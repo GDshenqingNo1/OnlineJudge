@@ -54,9 +54,6 @@ export default {
     }
   },
   methods: {
-    onSubmit(formName) {
-
-    },
     cancel(){
       this.$router.push("/")
     }

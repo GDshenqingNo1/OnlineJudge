@@ -1,5 +1,4 @@
 import http from "./http";
-import {h} from "vue";
 export default {
   //获取题单
   getProblemList(param){
