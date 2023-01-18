@@ -1,4 +1,5 @@
 <template>
+  <div>
   <Navi></Navi>
   <el-table
     :data="tableData"
@@ -25,6 +26,7 @@
       width="180">
     </el-table-column>
   </el-table>
+  </div>
 </template>
 <script>
 import Navi from "./Navi.vue";

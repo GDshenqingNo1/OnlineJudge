@@ -1,7 +1,6 @@
 <template>
     <div>
-      <Navi></Navi>
-      <ProblemList></ProblemList>>
+      <ProblemList></ProblemList>
     </div>
 </template>
 

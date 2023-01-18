@@ -1,11 +1,11 @@
 <template>
 
   <div>
-    <el-menu  class="el-menu-demo" mode="horizontal" @select="handleSelect">
+    <el-menu  router class="el-menu-demo" mode="horizontal" @select="handleSelect">
       <el-menu-item index="/problem-list">题单</el-menu-item>
       <el-menu-item index="/create-problem" >发布题目</el-menu-item>
-      <el-menu-item index="rank" >排行</el-menu-item>
-      <el-menu-item index="user">个人中心</el-menu-item>
+      <el-menu-item index="/rank" >排行</el-menu-item>
+      <el-menu-item index="/user">个人中心</el-menu-item>
       <el-button round @click="loginInfo">登录</el-button>
       <el-button round @click="registerInfo">注册</el-button>
     </el-menu>
